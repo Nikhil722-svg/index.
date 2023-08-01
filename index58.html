@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+</head>
+<style>
+    .container-1 {
+        border: 2px dashed black;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 20px;
+        height: 300px;
+        box-shadow: 0px 5px 20px black;
+    }
+
+    .container-2 {
+        font-size: x-large;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin: 20px;
+        border-radius: 10px;
+    }
+
+    .container-2:hover {
+        background-color: lightgrey;
+        transition: 1s;
+        box-shadow: 0px 5px 5px;
+    }
+
+    .container-3 {
+        margin: 20px;
+        width: 100px;
+        border: 2px solid white;
+        background-color: white;
+    }
+
+    .container-3:hover {
+        border: 2px solid black;
+        border-radius: 20px;
+        transition: 2s;
+        text-decoration: underline;
+        box-shadow: 1px 2px 2px black;
+    }
+
+    .container-4 {
+        margin: 20px;
+    }
+
+    .container-5 {
+        display: flex;
+    }
+</style>
+
+<body>
+    <div class="container-1">
+        <input type="number" name="number" id="N1" class="container-2" placeholder="Enter The Num">
+        +
+        <input type="number" name="number" id="N2" class="container-2" placeholder="Enter The Num">
+        <br>
+        <input type="number" name="number" id="D1" class="container-2" placeholder="Enter The Den">
+        +
+        <input type="number" name="number" id="D2" class="container-2" placeholder="Enter The Den">
+        <div class="container-5">
+            <button onclick="ress()" class="container-3">Find L.C.M</button>
+            <h1 class="container-4" id="ress"></h1>
+        </div>
+        <div class="container-5">
+            <button onclick="res()" class="container-3">Result</button>
+            <h1 class="container-4" id="res"></h1>
+            <h1 class="container-4" id="re"></h1>
+        </div>
+    </div>
+</body>
+<script>
+    function ress() {
+        const n1 = document.getElementById("N1").value;
+        const n2 = document.getElementById("D1").value;
+        const d1 = document.getElementById("D1").value;
+        const d2 = document.getElementById("D2").value;
+        let min = (d1 > d2) ? d1 : d2;
+        while (true) {
+            if (min % d1 == 0 && min % d2 == 0) {
+                document.getElementById("ress").innerHTML = "<b><i><e><u> The L.C.M of " + d1 + " and " + d2 + " is " + min + "</u></e></i></b>"
+                break;
+            }
+            min++;
+        }
+    }
+    function res() {
+        const n1 = document.getElementById("N1").value;
+        const n2 = document.getElementById("D1").value;
+        const d1 = document.getElementById("D1").value;
+        const d2 = document.getElementById("D2").value;
+        let min = (d1 > d2) ? d1 : d2;
+        while (true) {
+            if (min % d1 == 0 && min % d2 == 0) {
+                var lcm = min;
+                var x1 = lcm / n1;
+                var p1 = lcm * x1;
+                var x2 = lcm / n2;
+                var p2 = lcm * x2;
+                var a = p1 + p2;
+                document.getElementById("res").innerHTML = "<sup>" + a + "</sup>" + "/" + "<sub>" + lcm + "</sub>";
+                for (var i = 2; i <= lcm; i++) {
+                    if (a % i == 0 && a % i == 0) {
+                        var num1 = a / i;
+                        var num2 = lcm / i;
+                        document.getElementById("re").innerHTML = "<sup>" + num1 + "</sup>" + "/" + "<sub>" + num2 + "</sup>";
+                    }
+
+                }
+                break;
+            }
+            min++;
+        }
+    }
+</script>
+
+</html>
